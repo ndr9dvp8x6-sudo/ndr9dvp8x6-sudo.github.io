@@ -1,0 +1,11 @@
+{
+  "name": "StudyLog AI",
+  "short_name": "StudyLog",
+  "description": "A simple study timer, Pomodoro tracker, and learning analytics app.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": []
+}

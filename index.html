@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>StudyLog AI</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="theme-color" content="#2563eb" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="top-actions">
+        <div class="logo">📚 StudyLog AI</div>
+
+        <div class="lang-switch">
+          <button onclick="setLanguage('en')">EN</button>
+          <button onclick="setLanguage('ko')">KO</button>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div>
+          <p class="badge" data-i18n="badge">Study Tracker · Pomodoro · Analytics</p>
+          <h1 data-i18n="heroTitle">Build better study habits.</h1>
+          <p data-i18n="subtitle">Track your study time, stay consistent, and review your progress.</p>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <span data-i18n="today">Today</span>
+            <strong id="todayTotal">0m</strong>
+          </div>
+          <div>
+            <span data-i18n="streak">Streak</span>
+            <strong id="streakDays">0 days</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="timer-card">
+      <div class="mode-row">
+        <button class="mode-btn active" onclick="setMode('timer', this)">Timer</button>
+        <button class="mode-btn" onclick="setMode('pomodoro25', this)">25 / 5</button>
+        <button class="mode-btn" onclick="setMode('pomodoro50', this)">50 / 10</button>
+      </div>
+
+      <label data-i18n="subject">Subject</label>
+      <input id="subject" placeholder="e.g. Network Security" />
+
+      <div class="session-label" id="sessionLabel">Focus Session</div>
+      <div id="timer">00:00:00</div>
+
+      <div class="buttons">
+        <button onclick="startTimer()" data-i18n="start">Start</button>
+        <button onclick="pauseTimer()" data-i18n="pause">Pause</button>
+        <button class="save-btn" onclick="finishTimer()" data-i18n="finish">Finish & Save</button>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="stat-card">
+        <span data-i18n="totalStudy">Total Study Time</span>
+        <strong id="totalStudy">0m</strong>
+      </div>
+
+      <div class="stat-card">
+        <span data-i18n="topSubject">Most Studied Subject</span>
+        <strong id="topSubject">None</strong>
+      </div>
+
+      <div class="stat-card">
+        <span data-i18n="sessionCount">Total Sessions</span>
+        <strong id="sessionCount">0</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="weeklyTitle">Weekly Study Chart</h2>
+      <div id="weeklyChart" class="weekly-chart"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="subjectStatsTitle">Subject Statistics</h2>
+      <div id="subjectStats"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2 data-i18n="recentSessions">Recent Sessions</h2>
+        <button class="small-btn" onclick="clearAllLogs()" data-i18n="clearAll">Clear All</button>
+      </div>
+      <div id="logList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
